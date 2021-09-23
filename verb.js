@@ -25,7 +25,7 @@ const conjugate = (pronoun, originalVerb) => {
   let needSecond = false;
   const run = /бежать$/;
   const want = /хотеть$/;
-  //Проверка на разносклоняемые глаголы
+  //Проверка на разноспрягаемые глаголы
   const plural = ["мы", "вы", "они"];
   if (
     (run.test(verbLower) && testPronoun !== "они" && testPronoun !== "я") ||
