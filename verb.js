@@ -28,7 +28,6 @@ const conjugate = (pronoun, originalVerb) => {
   let needSecond = false;
   const run = /бежать$/;
   const want = /хотеть$/;
-  const see = /видеть$/;
 
   const plural = ["мы", "вы", "они"];
   if (
@@ -45,6 +44,7 @@ const conjugate = (pronoun, originalVerb) => {
   let verb;
 
   //Проверка на изменение букв в зависимости от склонения. Не смог найти нужных правил которые удобно забить в алгоритм, поэтому тут работаю по исключениям которые нашел
+  const see = /видеть$/;
   if (run.test(verbLower) && (testPronoun === "я" || testPronoun === "они")) {
     verb = originalVerb.slice(0, -4) + "г";
   } else if (
