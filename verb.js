@@ -80,17 +80,11 @@ const conjugate = (pronoun, originalVerb) => {
   ]);
 
   //И некоторые стандартные окончания, которые не меняются
-  const firstConjugate = new Map([
-    ["ты", "ешь"],
-    ["мы", "eм"],
-    ["он", "ет"],
-    ["вы", "ете"],
-  ]);
-  const secondConjugate = new Map([
-    ["ты", "ишь"],
-    ["мы", "им"],
-    ["он", "ит"],
-    ["вы", "ите"],
+  const endConjugate = new Map([
+    ["ты", "шь"],
+    ["мы", "м"],
+    ["он", "т"],
+    ["вы", "те"],
   ]);
 
   if (giveCheck.test(verbLower)) {
@@ -115,7 +109,7 @@ const conjugate = (pronoun, originalVerb) => {
         } else verb = verb + "ят";
         break;
       default:
-        verb += secondConjugate.get(testPronoun);
+        verb += "и" + endConjugate.get(testPronoun);
     }
   } else {
     switch (testPronoun) {
@@ -136,8 +130,15 @@ const conjugate = (pronoun, originalVerb) => {
         } else verb += "ют";
         break;
       default:
-        verb += firstConjugate.get(testPronoun);
+        verb += "е" + endConjugate.get(testPronoun);
     }
   }
   return `${pronoun} ${verb}`;
 };
+console.log(conjugate("я", "заменить"));
+console.log(conjugate("мы", "заменить"));
+console.log(conjugate("ты", "заменить"));
+console.log(conjugate("вы", "заменить"));
+console.log(conjugate("он", "заменить"));
+console.log(conjugate("она", "заменить"));
+console.log(conjugate("они", "заменить"));
